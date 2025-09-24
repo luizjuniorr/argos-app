@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+
+    <style>
+        :root {
+            --dark-mode: #0D1117;
+            --white: #fff;
+        }
+        
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--dark-mode);
+            color: var(--white);
+        }
+        
+        main {
+            width: 100vh;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 54px;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 22px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        button {
+            background: none;
+            color: var(--white);
+            padding: 6px;
+            width: 100px;
+            border: 1px solid var(--white);
+            border-radius: 10px;
+        }
+
+
+        .button {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <main>
+        <div class="Titulo ">
+            <h1>Argos</h1>
+        </div>
+
+        <div class="button">
+            <h2>Funções</h2>
+            <button>Luz</button>
+        </div>
+
+        <div>
+            <h2>Dados</h2>
+            <p>Quantidade por m²: <strong>12</strong></p>
+        </div>
+    </main>
+    
+</body>
+</html>
