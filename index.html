@@ -3,82 +3,188 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App</title>
+    <title>Argos</title>
 
     <style>
         :root {
             --dark-mode: #0D1117;
             --white: #fff;
+            --light-green: #6CB22A;
+            --border-color: rgba(255, 255, 255, 0.2);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            --input-focus: rgba(108, 178, 42, 0.3);
         }
         
         * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
         }
 
         body {
-            background-color: var(--dark-mode);
+            background: linear-gradient(135deg, var(--dark-mode) 0%, #1a1a2e 100%);
             color: var(--white);
-        }
-        
-        main {
-            width: 100vh;
-            height: 100vh;
+            min-height: 100vh;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            padding: 20px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            background: rgba(13, 17, 23, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .titulo {
+            border-bottom: 2px solid var(--light-green);
+            padding-bottom: 10px;
         }
 
         h1 {
-            font-size: 54px;
+            font-size: 48px;
+            font-weight: 700;
             text-transform: uppercase;
-            text-align: center;
+            letter-spacing: 2px;
+            color: var(--white);
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 5px;
         }
 
         h2 {
-            font-size: 22px;
-            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
             text-transform: uppercase;
+            color: var(--white);
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .funcao {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        form {
+            display: flex;
+            flex-direction:  column;
+            gap: 20px;
+        }
+
+        input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            color: var(--white);
+            padding: 15px 20px;
+            width: 100%;
+            font-size: 16px;
+            text-align: center;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        input:focus {
+            border-color: var(--light-green);
+            background: var(--input-focus);
+            box-shadow: 0 0 0 3px rgba(108, 178, 42, 0.1);
         }
 
         button {
-            background: none;
+            border: 2px solid var(--border-color);
+            padding: 15px 20px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50px;
             color: var(--white);
-            padding: 6px;
-            width: 100px;
-            border: 1px solid var(--white);
-            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
 
-
-        .button {
-            margin-top: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+        button:hover {
+            border-color: var(--light-green);
+            color: var(--light-green);
+            background: rgba(108, 178, 42, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(108, 178, 42, 0.2);
         }
 
+        .dados {
+            background: rgba(108, 178, 42, 0.05);
+            border: 1px solid var(--light-green);
+            border-radius: 15px;
+            padding: 20px;
+        }
+
+        .dados p {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        strong {
+            color: var(--light-green);
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        @media (max-width: 480px) {
+            main {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+        }
     </style>
-
 </head>
 <body>
     <main>
-        <div class="Titulo ">
+        <div class="titulo">
             <h1>Argos</h1>
         </div>
 
-        <div class="button">
-            <h2>Funções</h2>
-            <button>Luz</button>
+        <div class="funcao">
+            <h2>Intervalo de contabilização</h2>
+            <form action="">
+                <div>
+                    <input type="number" placeholder="Tempo (minutos)" id="time" min="1">
+                </div>
+                <button type="submit">Enviar</button>
+            </form>
         </div>
 
-        <div>
+        <div class="dados">
             <h2>Dados</h2>
-            <p>Quantidade por m²: <strong>12</strong></p>
+            <p>Quantidade total: <strong>12</strong></p>
         </div>
     </main>
-    
 </body>
 </html>
