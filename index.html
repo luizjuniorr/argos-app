@@ -299,7 +299,7 @@
             <h2>Dados</h2>
             <p>Quantidade total: <strong>12</strong></p>
 
-            <table>
+            <table id="table">
                 <tr>
                     <th>Período</th>
                     <th>Custo de intervenção</th>
@@ -330,5 +330,35 @@
             </table>
         </div>
     </main>
+
+    <script>
+        let socket
+        let button = document.querySelector("button")
+        button.addEventListener("click", )
+        
+        function init() {
+            socket = new WebSocket(`ws://$w{window.location.hostname}:81`)
+            socket.onmessage((message) => {
+                processMessage(message)
+            })
+        }
+
+        function sendMessage() {
+            socket.send("enviar informação para o esp")
+        }
+
+        function processMessage() {
+            document.querySelector("#table").innerHTML =+ `
+                <tr>
+                    <td>${message.data}</td>
+                    <td>R$ 1.329,99 </td>
+                    <td>50</td>
+                    <td>19%</td>
+                </tr>
+
+            `
+        }
+
+    </script>
 </body>
 </html>
